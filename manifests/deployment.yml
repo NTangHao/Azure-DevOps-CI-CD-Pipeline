@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: azuredevopscicdpipeline 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azuredevopscicdpipeline
+  template:
+    metadata:
+      labels:
+        app: azuredevopscicdpipeline 
+    spec:
+      containers:
+        - name: azuredevopscicdpipeline 
+          image: pipelinelab.azurecr.io/azuredevopscicdpipeline
+          ports:
+          - containerPort: 80
